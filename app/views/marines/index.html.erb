@@ -1,0 +1,27 @@
+<h1>Marines</h1>
+
+
+  <% @marines.each do |marine| %>
+    <p>
+      <%= marine.first_name %> <%= marine.last_name %>
+    </p>
+  <% end %>
+
+
+<h1>New Marine</h1>
+
+<%= form_with model: @marine do |form| %>
+  <div>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name %><br>
+    <%= form.text_area :last_name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
