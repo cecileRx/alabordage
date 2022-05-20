@@ -11,7 +11,7 @@ class MarinesController < ApplicationController
     if @marine.save
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 

@@ -1,28 +1,53 @@
-<h1>Marines</h1>
+<div class="container">
+  <h1 class="text-center m-5">Marines</h1>
+
+  <div class="row d-flex justify-content-center">
 
 
-  <% @marines.each do |marine| %>
-    <p>
-      <%= marine.first_name %> <%= marine.last_name %>
-    </p>
-  <% end %>
+        <% @marines.each do |marine| %>
+          <div class="col-4 text-center">
+            <%= marine.first_name %> <%= marine.last_name %>
+          </div>
+        <% end %>
 
 
-<h1>New Marine</h1>
-
-<%= form_with model: @marine do |form| %>
-  <div>
-    <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
   </div>
 
-  <div>
-    <%= form.label :last_name %><br>
-    <%= form.text_area :last_name %>
-  </div>
+  <div class="row d-flex justify-content-center">
+    <h1 class="text-center m-5">New Marine</h1>
+    <div class="col-md-6">
+      <%= form_with(model: @marine) do |form| %>
 
-  <div>
-    <%= form.submit %>
+        <div class="mb-3">
+          <%= form.label :first_name, class: "form-label" %>
+          <%= form.text_field :first_name, class: "form-control" %>
+          <div style="color: red">
+            <% if @marine.errors.include?(:first_name) %>
+                <% @marine.errors.full_messages_for(:first_name).each do |error_message| %>
+                  <%= error_message %>.
+                <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :last_name, class: "form-label" %>
+          <%= form.text_field :last_name, class: "form-control" %>
+          <div style="color: red">
+            <% if @marine.errors.include?(:last_name) %>
+                <% @marine.errors.full_messages_for(:last_name).each do |error_message| %>
+                  <%= error_message %>.
+                <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <%= form.submit "Save", class: "btn btn-success btn-block" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-<button type="button" class="btn btn-dark">Dark</button>
+</div>
+
+
