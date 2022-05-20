@@ -1,16 +1,12 @@
 <div class="container">
   <h1 class="text-center m-5">Marines</h1>
 
-  <div class="row d-flex justify-content-center">
-
-
-        <% @marines.each do |marine| %>
-          <div class="col-4 text-center">
-            <%= marine.first_name %> <%= marine.last_name %>
-          </div>
-        <% end %>
-
-
+  <div class="row">
+    <% @marines.each do |marine| %>
+      <div class="col-4 text-center">
+        <%= marine.first_name %> <%= marine.last_name %>
+      </div>
+    <% end %>
   </div>
 
   <div class="row d-flex justify-content-center">
@@ -21,25 +17,11 @@
         <div class="mb-3">
           <%= form.label :first_name, class: "form-label" %>
           <%= form.text_field :first_name, class: "form-control" %>
-          <div style="color: red">
-            <% if @marine.errors.include?(:first_name) %>
-                <% @marine.errors.full_messages_for(:first_name).each do |error_message| %>
-                  <%= error_message %>.
-                <% end %>
-            <% end %>
-          </div>
         </div>
 
         <div class="mb-3">
           <%= form.label :last_name, class: "form-label" %>
           <%= form.text_field :last_name, class: "form-control" %>
-          <div style="color: red">
-            <% if @marine.errors.include?(:last_name) %>
-                <% @marine.errors.full_messages_for(:last_name).each do |error_message| %>
-                  <%= error_message %>.
-                <% end %>
-            <% end %>
-          </div>
         </div>
 
         <div class="mb-3">

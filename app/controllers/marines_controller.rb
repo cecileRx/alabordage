@@ -1,17 +1,21 @@
 class MarinesController < ApplicationController
   def index
     @marines = Marine.all
-     @marine = Marine.new
+    @marine = Marine.new
   end
-
 
   def create
     @marine = Marine.new(marine_params)
 
+    first_name = params[:marine][:first_name]
+    last_name = params[:marine][:last_name]
+
     if @marine.save
+      flash[:notice] = "A new marine is onboard! Welcome #{first_name} #{last_name}! "
       redirect_to root_path
     else
-      render :index, status: :unprocessable_entity
+      flash[:notice] = "You should enter your first name and last name to get onboard!"
+      redirect_to root_path
     end
   end
 
