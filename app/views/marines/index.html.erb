@@ -1,7 +1,7 @@
 <div class="container">
-  <h1 class="text-center m-5">Marines</h1>
+  <h1 class="text-center m-5">Our Crew</h1>
 
-  <div class="row">
+  <div class="row mb-5">
     <% @marines.each do |marine| %>
       <div class="col-4 text-center">
         <%= marine.first_name %> <%= marine.last_name %>
@@ -10,24 +10,9 @@
   </div>
 
   <div class="row d-flex justify-content-center">
-    <h1 class="text-center m-5">New Marine</h1>
+    <h2 class="text-center m-5">Get on board!</h2>
     <div class="col-md-6">
-      <%= form_with(model: @marine) do |form| %>
-
-        <div class="mb-3">
-          <%= form.label :first_name, class: "form-label" %>
-          <%= form.text_field :first_name, class: "form-control" %>
-        </div>
-
-        <div class="mb-3">
-          <%= form.label :last_name, class: "form-label" %>
-          <%= form.text_field :last_name, class: "form-control" %>
-        </div>
-
-        <div class="mb-3">
-          <%= form.submit "Save", class: "btn btn-success btn-block" %>
-        </div>
-      <% end %>
+      <%= render "form" %>
     </div>
   </div>
 </div>
