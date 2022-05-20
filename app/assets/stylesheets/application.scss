@@ -1,1 +1,29 @@
 @import "bootstrap";
+@font-face {
+  font-family: 'Roboto-Regular';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("Roboto-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: url("Roboto-Bold.ttf") format('truetype');
+}
+
+body {
+  font-family: 'Roboto-Regular';
+  color: rgb(77, 73, 73);
+}
+
+h1, h2 {
+  font-family: 'Roboto-Bold' ;
+  color:rgb(66, 74, 152)
+}
+
+hr {
+  color: rgb(38, 11, 132);
+}

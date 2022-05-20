@@ -11,7 +11,7 @@ class MarinesController < ApplicationController
     last_name = params[:marine][:last_name]
 
     if @marine.save
-      flash[:notice] = "A new sailor is on board! Welcome #{first_name} #{last_name}! "
+      flash[:notice] = "A new sailor is on board! Welcome #{first_name.capitalize} #{last_name.capitalize}! "
       redirect_to root_path
     else
       flash[:notice] = "Hey Sailor! You should enter your first name and last name to get on board!"
