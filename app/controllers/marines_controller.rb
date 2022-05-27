@@ -8,19 +8,19 @@ class MarinesController < ApplicationController
     @marine = Marine.new(marine_params)
 
     first_name = params[:marine][:first_name]
-    last_name = params[:marine][:last_name]
+
 
     if @marine.save
-      flash[:notice] = "A new sailor is on board! Welcome #{first_name.capitalize} #{last_name.capitalize}! "
+      flash[:notice] = "A new sailor is on board! Welcome #{first_name.capitalize}! "
       redirect_to root_path
     else
-      flash[:notice] = "Hey Sailor! You should enter your first name and last name to get on board!"
+      flash[:notice] = "Hey Sailor! You should enter your name to get on board!"
       redirect_to root_path
     end
   end
 
   private
   def marine_params
-     params.require(:marine).permit(:first_name, :last_name)
+     params.require(:marine).permit(:first_name)
   end
 end

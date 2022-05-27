@@ -17,6 +17,8 @@
 body {
   font-family: 'Roboto-Regular';
   color: rgb(77, 73, 73);
+  background-image: image-url('yucar.jpg');
+  background-size: cover;
 }
 
 h1, h2 {
@@ -27,3 +29,4 @@ h1, h2 {
 hr {
   color: rgb(38, 11, 132);
 }
+
